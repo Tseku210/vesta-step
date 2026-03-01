@@ -3,16 +3,14 @@ import Image from "next/image";
 const team = [
   { name: "Ch. Uchral", role: "Founder", image: "/images/uchka.png" },
   { name: "D. Lkhamjav", role: "Founder", image: "/images/lkhamaa.png" },
-  { name: null, role: null, image: null },
-  { name: null, role: null, image: null },
 ];
 
 export function WhoAreWe() {
   return (
-    <section id="who-are-we" className="px-6 py-24">
+    <section id="who-are-we" className="px-6">
       <div className="mx-auto max-w-300">
-        <div className="mb-16 grid grid-cols-2 items-start gap-12">
-          <h2 className="text-5xl font-semibold tracking-tighter text-white md:text-7xl">
+        <div className="mb-16 grid md:grid-cols-2 items-start gap-12">
+          <h2 className="text-5xl font-semibold tracking-tighter text-white md:text-6xl lg:text-7xl">
             Who are we?
           </h2>
           <p className="text-base leading-relaxed text-white/60">
@@ -24,7 +22,7 @@ export function WhoAreWe() {
           </p>
         </div>
 
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {team.map((member, i) => (
             <div
               key={i}

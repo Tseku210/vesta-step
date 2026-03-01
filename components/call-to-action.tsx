@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 
 export function CallToAction() {
   return (
-    <section id="contact" className="px-6 py-24">
-      <div className="mx-auto flex max-w-300 items-end justify-between">
+    <section id="contact" className="px-6 mb-20">
+      <div className="mx-auto flex max-w-300 items-center md:items-end justify-between flex-col md:flex-row gap-10 md:gap-0">
         <div>
           <h2 className="mb-4 text-5xl font-semibold tracking-tighter text-white md:text-7xl">
             Ready to reach out?

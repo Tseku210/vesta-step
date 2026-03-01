@@ -15,9 +15,9 @@ const advisors = [
 
 export function Advisors() {
   return (
-    <section id="advisors" className="px-6 py-24">
+    <section id="advisors" className="px-6">
       <div className="mx-auto max-w-300">
-        <h2 className="mb-12 text-5xl font-semibold tracking-tighter text-white md:text-7xl">
+        <h2 className="mb-12 text-5xl font-semibold tracking-tighter text-white md:text-6xl lg:text-7xl">
           Advisors
         </h2>
 

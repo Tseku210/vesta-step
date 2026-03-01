@@ -18,10 +18,10 @@ const cards = [
 
 export function LicenseToDrive() {
   return (
-    <section id="products" className="px-6 py-24">
+    <section id="products" className="px-6 ">
       <div className="mx-auto max-w-300">
-        <div className="grid grid-cols-2 items-center">
-          <h2 className="mb-4 text-4xl font-semibold text-white md:text-7xl leading-tight tracking-tighter">
+        <div className="grid md:grid-cols-2 items-center">
+          <h2 className="mb-4 text-5xl font-semibold text-white md:text-6xl lg:text-7xl leading-tight tracking-tighter">
             Your license to <br />
             Drive
           </h2>

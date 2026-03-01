@@ -25,14 +25,14 @@ const needMoreHelp = [
 
 export function EverythingInOnePlace() {
   return (
-    <section id="about" className="px-6 py-24">
+    <section id="about" className="px-6">
       <div className="mx-auto max-w-300">
-        <h2 className="mb-6 text-5xl font-semibold tracking-tighter text-white md:text-7xl">
+        <h2 className="mb-6 text-5xl font-semibold tracking-tighter text-white md:text-6xl lg:text-7xl">
           Everything you need in one place
         </h2>
         <div className="mb-12 space-y-1">
           {subtitles.map((line) => (
-            <p key={line} className="text-xl text-white">
+            <p key={line} className="text-base md:text-xl text-white">
               {line}
             </p>
           ))}

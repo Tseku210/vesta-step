@@ -9,7 +9,7 @@ const partners = [
 
 export function Partners() {
   return (
-    <section id="partners" className="px-6 py-24">
+    <section id="partners" className="px-6">
       <div className="mx-auto max-w-300">
         <div className="mb-12 text-center">
           <h2 className="text-2xl font-semibold text-white">
