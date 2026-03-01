@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Vesta Step",
   description:
     "AI-powered mobility and payments platform for underserved communities",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
