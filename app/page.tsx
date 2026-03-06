@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="space-y-60">
+      <main className="space-y-32 md:space-y-60">
         <Hero />
         <LicenseToDrive />
         <EverythingInOnePlace />

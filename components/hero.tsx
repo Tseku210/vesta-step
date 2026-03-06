@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative max-w-300 mx-auto overflow-hidden px-6 mt-20 h-[calc(100vh-65px-80px)]">
+    <section className="relative max-w-300 mx-auto overflow-hidden px-6 mt-20 h-[calc(100dvh-65px-80px)] min-h-150">
       <div className="flex flex-col">
         <div className="space-y-6">
           <h1 className="text-5xl font-semibold leading-tight tracking-tighter text-white md:text-6xl lg:text-7xl">

@@ -1,8 +1,8 @@
 const advisors = [
-  {
-    name: "Nickolas Montano",
-    background: "International Investigator, JP Morgan",
-  },
+  // {
+  //   name: "Nickolas Montano",
+  //   background: "International Investigator, JP Morgan",
+  // },
   {
     name: "Manduul Enkhee",
     background: "Software Engineer At Meta",
@@ -10,6 +10,10 @@ const advisors = [
   {
     name: "Nomuunbilegt Batmunkh",
     background: "Marketing Advisor, Publics Group",
+  },
+  {
+    name: "Misheel Ganbat",
+    background: "Technology Consulting Manager at EY",
   },
 ];
 
