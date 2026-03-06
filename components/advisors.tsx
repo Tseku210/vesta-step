@@ -1,15 +1,15 @@
 const advisors = [
   {
-    name: "Nomuunbilegt Batmunkh",
-    background: "Director of Operations of Mongolian office of Publicis Groupe",
+    name: "Nickolas Montano",
+    background: "International Investigator, JP Morgan",
   },
   {
     name: "Manduul Enkhee",
-    background: "Software Engineer at Meta",
+    background: "Software Engineer At Meta",
   },
   {
-    name: "Misheel Ganbat",
-    background: "Technology Consulting Manager at EY",
+    name: "Nomuunbilegt Batmunkh",
+    background: "Marketing Advisor, Publics Group",
   },
 ];
 
@@ -23,7 +23,10 @@ export function Advisors() {
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {advisors.map((advisor) => (
-            <div key={advisor.name} className="self-center">
+            <div
+              key={advisor.name}
+              className="self-center bg-[#141516] border rounded-3xl px-7 py-12"
+            >
               <p className="text-lg font-semibold text-white">{advisor.name}</p>
               <p className="mt-2 text-base text-white/50">
                 {advisor.background}

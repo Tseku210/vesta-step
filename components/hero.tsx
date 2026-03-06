@@ -21,7 +21,6 @@ export function Hero() {
             alt="Vesta Step app mockup"
             width={1200}
             height={600}
-            quality={100}
             unoptimized
             className="md:max-w-4xl max-w-xl object-cover"
             priority

@@ -26,9 +26,9 @@ export function LicenseToDrive() {
             Drive
           </h2>
           <p className="mb-12 max-w-md text-base text-white/70 leading-relaxed">
-            АНУ дахь Монголчууд тээврийн хэрэгсэлтэй холбоотой бүх үйлчилгээг эх
-            хэл дээрээ — нэг платформоос. Өдөр тутмын хэрэгцээ болон бизнесийн
-            орлогоо нэмэгдүүлэх ухаалаг боломж.
+            All transportation-related services for foreign people in the United
+            States, in their native language, from a single platform. A smart
+            opportunity to enhance daily needs and business income.
           </p>
         </div>
 
@@ -44,7 +44,6 @@ export function LicenseToDrive() {
                   alt={card.text}
                   width={1000}
                   height={800}
-                  quality={100}
                   className="h-full w-full object-left object-cover"
                 />
               </div>

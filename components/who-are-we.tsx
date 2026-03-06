@@ -3,6 +3,7 @@ import Image from "next/image";
 const team = [
   { name: "Ch. Uchral", role: "Founder", image: "/images/uchka.png" },
   { name: "D. Lkhamjav", role: "Founder", image: "/images/lkhamaa.png" },
+  { name: "M. Odmaa", role: "Project Manager", image: "/images/odmaa.png" },
 ];
 
 export function WhoAreWe() {
@@ -28,18 +29,13 @@ export function WhoAreWe() {
               key={i}
               className="overflow-hidden rounded-4xl border border-white/10 bg-background"
             >
-              <div className="aspect-4/5 bg-linear-to-t from-[#535353] to-[#08090A]">
-                {member.image ? (
-                  <Image
-                    src={member.image}
-                    alt={member.name ?? ""}
-                    width={600}
-                    height={600}
-                    className="h-full w-full object-contain object-bottom"
-                  />
-                ) : (
-                  <div className="h-full w-full bg-[#1a1b1c]" />
-                )}
+              <div className="aspect-4/5 relative bg-linear-to-t from-[#535353] to-[#08090A]">
+                <Image
+                  src={member.image}
+                  alt={member.name ?? ""}
+                  fill
+                  className="h-full w-full object-contain object-bottom"
+                />
               </div>
               {member.name && (
                 <div className="p-6">
