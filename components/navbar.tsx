@@ -5,57 +5,81 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const navLinks = [
-  { label: "Products", href: "#products" },
-  { label: "About", href: "#about" },
-  { label: "Who are we", href: "#who-are-we" },
+  { label: "Market", href: "#market" },
+  { label: "Lending", href: "#lending" },
+  { label: "Ecosystem", href: "#ecosystem" },
+  { label: "Team", href: "#team" },
   { label: "Partners", href: "#partners" },
-  { label: "Advisors", href: "#advisors" },
-  { label: "Contact", href: "#contact" },
 ];
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-white/5 bg-[#08090A]/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-6">
-        <a href="#" className="flex items-center gap-2">
-          <Image src="/logo.svg" alt="Vesta Step" width={28} height={28} />
-          <span className="text-lg font-semibold text-white">Vesta Step</span>
+    <nav className="sticky top-0 z-50 border-b border-[var(--color-rule)] bg-[rgba(8,9,10,0.85)] backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-6 md:px-14">
+        <a href="#top" className="flex items-center gap-2.5">
+          <Image src="/logo.svg" alt="Vesta Step" width={22} height={22} />
+          <span className="text-sm font-medium tracking-[-0.005em] text-white">
+            Vesta Step
+          </span>
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-7 md:flex">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-zinc-400 transition-colors hover:text-white"
-            >
-              {link.label}
-            </a>
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="font-mono text-[11px] uppercase tracking-[0.04em] text-[var(--color-fg-55)] transition-colors hover:text-white"
+              >
+                {link.label}
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
+
+        <a
+          href="#contact"
+          className="hidden bg-white px-4 py-2 font-mono text-[11px] uppercase tracking-[0.06em] text-[var(--color-bg)] transition-colors hover:bg-white/90 md:inline-block"
+        >
+          Get in touch →
+        </a>
 
         <button
-          className="text-zinc-400 md:hidden"
+          type="button"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+          className="text-[var(--color-fg-55)] md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-white/5 px-6 pb-4 md:hidden">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="block py-2 text-sm text-zinc-400 transition-colors hover:text-white"
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="border-t border-[var(--color-rule)] px-6 pb-4 md:hidden">
+          <ul className="flex flex-col">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="block py-3 font-mono text-[11px] uppercase tracking-[0.04em] text-[var(--color-fg-55)] transition-colors hover:text-white"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a
+                href="#contact"
+                className="mt-2 inline-block bg-white px-4 py-2 font-mono text-[11px] uppercase tracking-[0.06em] text-[var(--color-bg)]"
+                onClick={() => setMobileOpen(false)}
+              >
+                Get in touch →
+              </a>
+            </li>
+          </ul>
         </div>
       )}
     </nav>

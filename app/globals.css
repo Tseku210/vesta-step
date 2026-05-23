@@ -7,7 +7,18 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  /* V1 — The Index design tokens (also defined in :root so var() resolves) */
+  --color-bg: var(--bg);
+  --color-bg-elev: var(--bg-elev);
+  --color-fg: var(--fg);
+  --color-fg-70: var(--fg-70);
+  --color-fg-55: var(--fg-55);
+  --color-fg-40: var(--fg-40);
+  --color-fg-25: var(--fg-25);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -48,6 +59,26 @@
 
 :root {
   --radius: 0.625rem;
+  /* V1 — The Index design tokens, consumed via var() in arbitrary Tailwind values
+     (e.g. text-[var(--color-fg-40)]). Mirrored in @theme inline for utility names. */
+  --color-bg: #08090a;
+  --color-bg-elev: #0b0c0e;
+  --color-fg: #ffffff;
+  --color-fg-70: rgba(255, 255, 255, 0.7);
+  --color-fg-55: rgba(255, 255, 255, 0.55);
+  --color-fg-40: rgba(255, 255, 255, 0.4);
+  --color-fg-25: rgba(255, 255, 255, 0.25);
+  --color-rule: rgba(255, 255, 255, 0.1);
+  --color-rule-strong: rgba(255, 255, 255, 0.18);
+  --bg: var(--color-bg);
+  --bg-elev: var(--color-bg-elev);
+  --fg: var(--color-fg);
+  --fg-70: var(--color-fg-70);
+  --fg-55: var(--color-fg-55);
+  --fg-40: var(--color-fg-40);
+  --fg-25: var(--color-fg-25);
+  --rule: var(--color-rule);
+  --rule-strong: var(--color-rule-strong);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -121,5 +152,77 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings:
+      "ss01",
+      "cv11";
+  }
+}
+
+@layer utilities {
+  /* Lending diagram — single timeline, vertical on mobile / horizontal on desktop.
+     The dot travels along the hairline; keyframes flip translation axis per breakpoint. */
+  .lending-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 9999px;
+    background: #fff;
+    top: 0;
+    left: -1.5px;
+    animation: lending-dot-v 6s linear infinite;
+  }
+  @media (min-width: 768px) {
+    .lending-dot {
+      top: -1.5px;
+      left: 0;
+      animation: lending-dot-h 6s linear infinite;
+    }
+  }
+
+  /* Team — single 6-cell grid that swaps area layout per breakpoint.
+     Mobile: each founder grouped. Desktop: portraits row + meta row. */
+  .founders-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "p1" "m1" "p2" "m2" "p3" "m3";
+  }
+  @media (min-width: 768px) {
+    .founders-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas: "p1 p2 p3" "m1 m2 m3";
+    }
+  }
+}
+
+@keyframes lending-dot-v {
+  0%, 4% { opacity: 0; transform: translateY(0); }
+  6% { opacity: 1; }
+  94% { opacity: 1; transform: translateY(calc(100% - 4px)); }
+  100% { opacity: 0; }
+}
+@keyframes lending-dot-h {
+  0%, 4% { opacity: 0; transform: translateX(0); }
+  6% { opacity: 1; }
+  94% { opacity: 1; transform: translateX(calc(100% - 4px)); }
+  100% { opacity: 0; }
+}
+
+/* Respect prefers-reduced-motion across all SMIL/CSS animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Pause SMIL animations inside SVG */
+  svg animate,
+  svg animateTransform,
+  svg animateMotion {
+    /* SMIL doesn't have a direct CSS off-switch; the StatCounter and any
+       JS-driven animations check the matchMedia query and short-circuit. */
+    display: none !important;
   }
 }
