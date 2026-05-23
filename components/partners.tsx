@@ -1,37 +1,42 @@
 import Image from "next/image";
 
-const partners = [
+type Partner = {
+  name: string;
+  image: string;
+};
+
+const partners: Partner[] = [
   { name: "Visa", image: "/images/visa.png" },
   { name: "Cash App", image: "/images/cashapp.png" },
-  { name: "Colo", image: "/images/colo.png" },
   { name: "Payoneer", image: "/images/payoneer.png" },
+  { name: "Colo", image: "/images/colo.png" },
+  { name: "Blue Anchor", image: "/images/blue-anchor-white.png" },
 ];
 
 export function Partners() {
   return (
-    <section id="partners" className="px-6">
-      <div className="mx-auto max-w-300">
-        <div className="mb-12 text-center">
-          <h2 className="text-2xl font-semibold text-white">
-            Startup Strategy &amp; Product Partner
-          </h2>
-          <p className="mx-auto max-w-xl text-2xl font-semibold text-white/50">
-            Building scalable systems from idea to production
-          </p>
+    <section
+      id="partners"
+      className="border-b border-[var(--color-rule)] bg-[var(--color-bg-elev)] py-14 md:py-20"
+    >
+      <div className="mx-auto max-w-[1200px] px-6 md:px-14">
+        <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--color-fg-55)] md:text-[11px]">
+          Trusted partners
         </div>
 
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          {partners.map((partner) => (
+        <div className="mt-8 grid grid-cols-2 items-center gap-y-7 gap-x-6 py-8 sm:grid-cols-3 md:mt-10 md:py-10 lg:grid-cols-5">
+          {partners.map((p) => (
             <div
-              key={partner.name}
-              className="flex h-12 items-center justify-center"
+              key={p.name}
+              title={p.name}
+              className="flex h-8 items-center justify-center"
             >
               <Image
-                src={partner.image}
-                alt={partner.name}
-                width={120}
-                height={40}
-                className="size-full object-contain"
+                src={p.image}
+                alt={p.name}
+                width={140}
+                height={32}
+                className="h-8 w-auto max-w-[140px] object-contain"
               />
             </div>
           ))}
